@@ -1,0 +1,118 @@
+{ "name": "Twee",
+  "scopeName": "text.twee",
+  "fileTypes": ["tw"],
+  "patterns": [
+    { "name": "meta.html.twee",
+      "begin": "(<html>)",
+      "beginCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.html.begin.twee" }
+      },
+      "end": "(</html>)",
+      "endCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.html.end.twee" }
+      },
+      "contentName": "text.html.twee",
+      "patterns": [
+        { "include": "text.html.basic" }
+      ]
+    },
+    { "name": "meta.css.twee",
+      "begin": "(^::)(.+)(\\[)(stylesheet)(\\])",
+      "beginCaptures": {
+        "1": { "name": "storage.type.twee" },
+        "2": { "name": "comment.block.entity.name.type.css.twee"},
+        "3": { "name": "comment.block.punctuation.definition.tag.begin.twee" },
+        "4": { "name": "storage.modifer.twee" },
+        "5": { "name": "comment.block.punctuation.definition.tag.end.twee" }
+      },
+      "end": "^(?=::)",
+      "contentName": "source.embeded.css.twee",
+      "patterns": [
+        { "include": "source.css" }
+      ]
+    },
+    { "name": "meta.js.twee",
+      "begin": "(^::)(.+)(\\[)(script)(\\])",
+      "beginCaptures": {
+        "1": { "name": "storage.type.twee" },
+        "2": { "name": "comment.block.entity.name.type.js.twee"},
+        "3": { "name": "comment.block.punctuation.definition.tag.begin.twee" },
+        "4": { "name": "storage.modifer.twee" },
+        "5": { "name": "comment.block.punctuation.definition.tag.end.twee" }
+      },
+      "end": "^(?=::)",
+      "contentName": "source.embeded.js.twee",
+      "patterns": [
+        { "include": "source.js" }
+      ]
+    },
+    { "name": "meta.passage.twee",
+      "match": "(^::)\\s*((Start|StoryTitle|StorySubtitle|StoryAuthor|StoryMenu)|([^\\[]*))\\s*((\\[)([^\\]]*)(\\]))*",
+      "captures": {
+        "1": { "name": "storage.type.twee" },
+        "3": { "name": "support.class.passage.twee" },
+        "4": { "name": "entity.name.function.passage.twee" },
+        "6": { "name": "comment.block.punctuation.definition.tag.begin.twee" },
+        "7": { "name": "entity.name.tag.twee" },
+        "8": { "name": "comment.block.punctuation.definition.tag.end.twee" }
+      }
+    },
+    { "name": "meta.function.twee",
+      "begin": "(<<)",
+      "beginCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.function.begin.twee" }
+      },
+      "end": "(>>)",
+      "endCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.function.end.twee" }
+      },
+      "patterns": [
+        { "match": "(back|choice|display|actions|pop|print|set|if|else|endif|remember|silently|endsilently)",
+          "name": "keyword.control.twee"
+        },
+        { "match": "\\$\\b([A-Za-z_][A-Za-z0-9_]*)\\b",
+          "name": "variable.parameter.twee"
+        },
+        { "match": "\\b(eq|neq|gt|gte|lt|lte|and|or|not)\\b",
+          "name": "keyword.operator.twee"
+        },
+        { "match": "('[^']*')",
+          "name": "string.quoted.single.twee"
+        },
+        { "match": "(\"[^\"]*\")",
+          "name": "string.quoted.double.twee"
+        },
+        { "match": "(/[^/]*/)",
+          "name": "string.regexp.twee"
+        },
+        { "match": "!|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|(?<!\\()/=|%=|\\+=|\\-=|&=|\\^=|\\b(in|instanceof|new|delete|typeof|void)\\b",
+          "name": "keyword.operator.js"
+        },
+        { "match": "\\b((0(x|X)[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?))\\b",
+          "name": "constant.numeric.js"
+        },
+        { "match": "\\btrue\\b",
+          "name": "constant.language.boolean.true.js"
+        },
+        { "match": "\\bfalse\\b",
+          "name": "constant.language.boolean.false.js"
+        },
+        { "match": "\\bnull\\b",
+          "name": "constant.language.null.js"
+        },
+        { "match": "\\b(Infinity|NaN|undefined)\\b",
+          "name": "constant.language.js"
+        }
+      ]
+    },
+    { "match": "(\\[\\[)([^\\]]*)(\\]\\])",
+      "name": "meta.markup.underline.link.twee",
+      "captures": {
+        "1": { "name": "comment.block.punctuation.definition.link.begin.twee" },
+        "2": { "name": "entity.name.function.link.twee" },
+        "3": { "name": "comment.block.punctuation.definition.link.end.twee" }
+      }
+    }
+  ],
+  "uuid": "a30284bd-5e16-49c`8-9855-e095bcfe9c51"
+}
