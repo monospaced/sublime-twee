@@ -199,7 +199,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(back|choice|display|actions|pop|print|set|if|else|endif|remember|silently|endsilently)</string>
+					<string>(back|choice|display|actions|pop|print|set|if|else|endif|remember|silently|endsilently|mask)</string>
 					<key>name</key>
 					<string>keyword.control.twee</string>
 				</dict>
@@ -272,28 +272,121 @@
 			</array>
 		</dict>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>(\[\[)</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>comment.block.punctuation.definition.link.begin.twee</string>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.link.twee</string>
-				</dict>
-				<key>3</key>
+			</dict>
+			<key>contentName</key>
+			<string>entity.name.function.link.twee</string>
+			<key>end</key>
+			<string>(\]\])</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>comment.block.punctuation.definition.link.end.twee</string>
 				</dict>
 			</dict>
-			<key>match</key>
-			<string>(\[\[)([^\]]*)(\]\])</string>
 			<key>name</key>
 			<string>meta.markup.underline.link.twee</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>comment.block.punctuation.definition.link.divider.twee</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.other.attribute-name.link.twee</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\b\|\b)([^\]]*)</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(\[)(img)(\[)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.block.punctuation.definition.image.begin.twee</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>support.type.image.twee</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>comment.block.punctuation.definition.image.divider.twee</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>entity.other.attribute-name.image.twee</string>
+			<key>end</key>
+			<string>(\]\])</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.block.punctuation.definition.image.end.twee</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.markup.other.image.twee</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\b\|\b|\b\]\[\b</string>
+					<key>name</key>
+					<string>comment.block.punctuation.definition.image.divider.twee</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(/%)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.block.punctuation.definition.begin.twee</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>comment.block.twee</string>
+			<key>end</key>
+			<string>(%/)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.block.punctuation.definition.end.twee</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.comment.block.twee</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

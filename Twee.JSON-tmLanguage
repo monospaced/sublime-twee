@@ -67,7 +67,7 @@
         "1": { "name": "comment.block.punctuation.definition.function.end.twee" }
       },
       "patterns": [
-        { "match": "(back|choice|display|actions|pop|print|set|if|else|endif|remember|silently|endsilently)",
+        { "match": "(back|choice|display|actions|pop|print|set|if|else|endif|remember|silently|endsilently|mask)",
           "name": "keyword.control.twee"
         },
         { "match": "\\$\\b([A-Za-z_][A-Za-z0-9_]*)\\b",
@@ -105,13 +105,53 @@
         }
       ]
     },
-    { "match": "(\\[\\[)([^\\]]*)(\\]\\])",
-      "name": "meta.markup.underline.link.twee",
-      "captures": {
-        "1": { "name": "comment.block.punctuation.definition.link.begin.twee" },
-        "2": { "name": "entity.name.function.link.twee" },
-        "3": { "name": "comment.block.punctuation.definition.link.end.twee" }
-      }
+    { "name": "meta.markup.underline.link.twee",
+      "begin": "(\\[\\[)",
+      "beginCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.link.begin.twee" }
+      },
+      "end": "(\\]\\])",
+      "endCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.link.end.twee" }
+      },
+      "contentName": "entity.name.function.link.twee",
+      "patterns": [
+        { "match": "(\\b\\|\\b)([^\\]]*)",
+          "captures": {
+            "1": { "name": "comment.block.punctuation.definition.link.divider.twee" },
+            "2": { "name": "entity.other.attribute-name.link.twee" }
+          }
+        }
+      ]
+    },
+    { "name": "meta.markup.other.image.twee",
+      "begin": "(\\[)(img)(\\[)",
+      "beginCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.image.begin.twee" },
+        "2": { "name": "support.type.image.twee" },
+        "3": { "name": "comment.block.punctuation.definition.image.divider.twee" }
+      },
+      "end": "(\\]\\])",
+      "endCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.image.end.twee" }
+      },
+      "contentName": "entity.other.attribute-name.image.twee",
+      "patterns": [
+        { "match": "\\b\\|\\b|\\b\\]\\[\\b",
+          "name": "comment.block.punctuation.definition.image.divider.twee"
+        }
+      ]
+    },
+    { "name": "meta.comment.block.twee",
+      "begin": "(/%)",
+      "beginCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.begin.twee" }
+      },
+      "end": "(%/)",
+      "endCaptures": {
+        "1": { "name": "comment.block.punctuation.definition.end.twee" }
+      },
+      "contentName": "comment.block.twee"
     }
   ],
   "uuid": "a30284bd-5e16-49c8-9855-e095bcfe9c51"
