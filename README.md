@@ -1,7 +1,7 @@
 Sublime Twee
 ============
 
-*twee* source code syntax highlighting for Sublime Text 2.
+*twee* source code syntax highlighting for Sublime Text.
 
 *twee* is a command-line tool for writing hypertext stories…
 
@@ -13,9 +13,9 @@ Sublime Twee
 
 ### Package Control
 
-The easiest way to install this is with [Package Control](http://wbond.net/sublime_packages/package_control).
+The easiest way to install this is with [Package Control](https://packagecontrol.io/).
 
-* If you just went and installed Package Control, you probably need to restart Sublime Text 2 before doing this next bit.
+* If you just went and installed Package Control, you probably need to restart Sublime Text before doing this next bit.
 * Bring up the Command Palette (Command+Shift+p on OS X, Control+Shift+p on Linux/Windows).
 * Select "Package Control: Install Package" (it'll take a few seconds)
 * Select Twee when the list appears.
